@@ -152,6 +152,7 @@ func BizSetResourceInfo(res *fc.Resource, created bool) error {
 	} else {
 		key := getResourceKey(strconv.Itoa(res.ID))
 		data, _ := yaml.MarshalYML(res)
+
 		// should set method in this situation
 		res.Methods = nil
 		setErr := config.Client.Update(key, string(data))
